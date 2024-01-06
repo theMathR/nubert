@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://0aic626qs25r"]
+
+[ext_resource type="Texture2D" uid="uid://cqkgl8vf5qfp1" path="res://nuballoon.png" id="1_7em6l"]
+[ext_resource type="Script" path="res://balloon.gd" id="2_tcl1g"]
+
+[node name="Sprite2D" type="Sprite2D"]
+scale = Vector2(3, 3)
+texture = ExtResource("1_7em6l")
+offset = Vector2(0, -30)
+script = ExtResource("2_tcl1g")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -30)
+scale = Vector2(1.36667, 2.9)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

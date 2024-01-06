@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://74crh2tao3h3"]
+
+[ext_resource type="Script" path="res://textbox.gd" id="1_63ufp"]
+[ext_resource type="Texture2D" uid="uid://dbqvjxbgcgb36" path="res://misc/textbox.png" id="1_ddlck"]
+[ext_resource type="Texture2D" uid="uid://b0h2dnmcm4kfs" path="res://Nubert/portait.png" id="2_edkde"]
+[ext_resource type="Texture2D" uid="uid://bvamjlg2alqnp" path="res://Mousemillian/mausi.png" id="3_aun3d"]
+[ext_resource type="FontFile" uid="uid://cuhy7h606a552" path="res://Determination/DTM-Mono.ttf" id="3_khmuy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_slsl5"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_aun3d")
+}],
+"loop": true,
+"name": &"mousemillian",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_edkde")
+}],
+"loop": true,
+"name": &"nubert",
+"speed": 5.0
+}]
+
+[sub_resource type="Theme" id="Theme_vi3dw"]
+default_font = ExtResource("3_khmuy")
+default_font_size = 30
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_63ufp")
+
+[node name="Box" type="TextureRect" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -148.0
+offset_right = 148.0
+offset_bottom = 83.0
+grow_horizontal = 2
+scale = Vector2(2.5, 2.5)
+pivot_offset = Vector2(148, 0)
+texture = ExtResource("1_ddlck")
+
+[node name="TextureRect" type="AnimatedSprite2D" parent="Box"]
+position = Vector2(45, 41.5)
+sprite_frames = SubResource("SpriteFrames_slsl5")
+animation = &"mousemillian"
+
+[node name="Label" type="RichTextLabel" parent="Box"]
+layout_mode = 0
+offset_left = 14.8
+offset_top = 11.6
+offset_right = 689.8
+offset_bottom = 161.6
+scale = Vector2(0.4, 0.4)
+theme = SubResource("Theme_vi3dw")
+text = "I'm Nubert. Everybody loves me."
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

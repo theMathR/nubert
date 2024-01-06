@@ -1,0 +1,28 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://cxhssaywpopj0"]
+
+[ext_resource type="Texture2D" uid="uid://cn37qt5364vjp" path="res://Nubert/Nubert2.png" id="2_m2d66"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f8xlo"]
+load_path = "res://.godot/imported/Nubert.png-824cb85b5aaddad8644d6d04107d18b6.ctex"
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_f8xlo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_f8xlo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_m2d66")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 5.0
+}]

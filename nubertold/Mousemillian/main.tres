@@ -1,0 +1,79 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://bmr3gjl6rs70c"]
+
+[ext_resource type="Texture2D" uid="uid://bhkyuoc726us1" path="res://Mousemillian/maus.png" id="1_qv6bu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gc3n"]
+atlas = ExtResource("1_qv6bu")
+region = Rect2(0, 0, 42, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccqom"]
+atlas = ExtResource("1_qv6bu")
+region = Rect2(132, 0, 42, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1f5ft"]
+atlas = ExtResource("1_qv6bu")
+region = Rect2(88, 0, 42, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffj6g"]
+atlas = ExtResource("1_qv6bu")
+region = Rect2(44, 0, 42, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1lk3"]
+atlas = ExtResource("1_qv6bu")
+region = Rect2(0, 0, 42, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbbv6"]
+atlas = ExtResource("1_qv6bu")
+region = Rect2(176, 0, 42, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f44fl"]
+atlas = ExtResource("1_qv6bu")
+region = Rect2(220, 0, 42, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6d0a1"]
+atlas = ExtResource("1_qv6bu")
+region = Rect2(264, 0, 42, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofyxl"]
+atlas = ExtResource("1_qv6bu")
+region = Rect2(308, 0, 42, 25)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gc3n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccqom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1f5ft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffj6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1lk3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbbv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f44fl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6d0a1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofyxl")
+}],
+"loop": true,
+"name": &"deftalk",
+"speed": 15.0
+}]

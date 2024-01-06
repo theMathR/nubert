@@ -1,0 +1,61 @@
+body {
+	margin: 0;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 12px;
+	overflow-y: scroll;
+	background-color: #020044;
+	color: #020044;
+	background-size: cover;
+	background-image: url("https://file.garden/ZQ7m59u0aDkSDgVR/cyberbg.png");
+}
+
+#main {
+	width: 940px;
+	margin: 0 auto;
+	padding: 0 5px 5px 5px;
+	background-color: #f00;
+}
+
+nav {
+	font-family: "arial";
+	font-weight: bold;
+	font-size: x-small;
+	text-align: center;
+	height: 15px;
+	padding: 2px;
+	text-transform: uppercase;
+	background-color: #af0000;
+	color: #ffffff;
+}
+#slide {
+  display: table;
+  width: 600px;
+  max-width: 940px;
+  margin: 7px auto 23px auto;
+  padding: 0 25px;
+  word-wrap: break-word;
+  word-break: break-word;
+  background-color: #cf0000;
+}
+.mspfalogo {
+  width: 208px;
+  height: 102px;
+  float: left;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-right: 4px solid #b8b8b8;
+  background-color: #f00;
+}
+
+header .mspfalogo {
+  background-size: contain;
+  background-image: url("https://file.garden/ZQ7m59u0aDkSDgVR/nubert_big.png");
+}
+
+footer .mspfalogo {
+  background-size: contain;
+  background-image: url("https://file.garden/ZQ7m59u0aDkSDgVR/nubertspin.gif");
+}
+a:active{
+ color:yellow;
+}

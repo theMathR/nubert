@@ -1,0 +1,41 @@
+
+; Player information
+[Info]
+name         = "Nubert"   ; Name of character
+displayname  = "Nubert"  ; Name of character to display
+versiondate  = 01,05,2024           ; Version date of character (MM,DD,YYYY or X.XX or extX.X.X)
+mugenversion = 1.0           ; Version of MUGENext character works on (X.XX or extX.X.X)
+author       = "MathR"   ; Character author name
+pal.defaults = 1,2,3,4,5,6   ; Default palettes in order of preference (up to 4, starts from 1)
+localcoord   = 320,240       ; Local coordinate space (width, height)
+
+; Files for the player
+[Files]
+cmd      = char.cmd          ; Command set
+cns      = char.cns          ; Constants
+st       = char.cns          ; States
+stcommon = common1.cns       ; Common states (from data or motif)
+sprite   = char.sff          ; Sprite
+anim     = char.air          ; Animation
+sound    = char.snd          ; Sound
+ai       = char.ai           ; AI hints data (not used)
+
+; Maps character selection buttons to palette numbers.
+[Palette Keymap]
+x  = 1 ;Press button X to select palette 1, etc.
+y  = 2
+z  = 3
+a  = 1
+b  = 2
+c  = 3
+x2 = 4 ;Hold Start and press button X for palette 7, etc.
+y2 = 5
+z2 = 6
+a2 = 4
+b2 = 5
+c2 = 6
+
+; Arcade mode
+[Arcade]
+;intro.storyboard = intro.def
+;ending.storyboard = ending.def
