@@ -1,0 +1,655 @@
+[gd_scene load_steps=61 format=3 uid="uid://bc7wcq6vhky58"]
+
+[ext_resource type="Texture2D" uid="uid://cflq5uakj5g6h" path="res://explore_home/layer1sheet.png" id="1_7j0iu"]
+[ext_resource type="Texture2D" uid="uid://c8ranemtbhvv4" path="res://explore_home/layer2.png" id="2_3l3bo"]
+[ext_resource type="Script" path="res://explore_home/Nubert.gd" id="2_lwkrx"]
+[ext_resource type="Texture2D" uid="uid://bq178icfwqcvf" path="res://trashy/sheet.png" id="2_qadcm"]
+[ext_resource type="Script" path="res://explore_home/Trashy.gd" id="3_bm5hn"]
+[ext_resource type="Script" path="res://explore_home/interact.gd" id="4_o1afb"]
+[ext_resource type="Texture2D" uid="uid://b2mmrvdguf0wu" path="res://nubert/skate.png" id="4_rbya7"]
+[ext_resource type="Texture2D" uid="uid://c2hrm2bcy63u6" path="res://nubert/sheet.png" id="5_ni27n"]
+[ext_resource type="Texture2D" uid="uid://5tqekhgyg7ek" path="res://nubert/taunt.png" id="6_gq0ur"]
+[ext_resource type="Script" path="res://explore_home/AnimationPlayer.gd" id="6_w2a7e"]
+[ext_resource type="Script" path="res://explore_home/Taunt.gd" id="7_8rlu7"]
+[ext_resource type="Texture2D" uid="uid://dk1joeeipyu1f" path="res://screen1.png" id="7_e1l3e"]
+[ext_resource type="Texture2D" uid="uid://cf4ux1scl7ydi" path="res://screen2.png" id="8_40y23"]
+[ext_resource type="Texture2D" uid="uid://bo4nonre876ad" path="res://screen.png" id="9_eqasw"]
+[ext_resource type="Texture2D" uid="uid://dmqdcedxfqwmg" path="res://text/box.png" id="10_83ka1"]
+[ext_resource type="FontFile" uid="uid://crfidc808xvtj" path="res://text/DTM-Sans.ttf" id="11_xkwta"]
+[ext_resource type="Script" path="res://explore_home/talk.gd" id="12_ro2ub"]
+[ext_resource type="AudioStream" uid="uid://bcbv3hork5vrk" path="res://sfx_taunt.mp3" id="13_xvrsl"]
+[ext_resource type="Texture2D" uid="uid://wbhme7etfu58" path="res://help.png" id="14_cb2mv"]
+[ext_resource type="AudioStream" uid="uid://c3rj37lofyu20" path="res://SND_TXT1.wav" id="19_qklet"]
+[ext_resource type="AudioStream" uid="uid://c6s6elu8ob7ag" path="res://cybercity.mp3" id="21_gmovh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jr8l"]
+atlas = ExtResource("1_7j0iu")
+region = Rect2(0, 900, 3850, 450)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iv65r"]
+atlas = ExtResource("1_7j0iu")
+region = Rect2(0, 450, 3850, 450)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rktb6"]
+atlas = ExtResource("1_7j0iu")
+region = Rect2(0, 0, 3850, 450)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g5jdk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jr8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iv65r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rktb6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skaou"]
+atlas = ExtResource("2_qadcm")
+region = Rect2(0, 0, 279, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnnfe"]
+atlas = ExtResource("2_qadcm")
+region = Rect2(279, 0, 279, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sibaj"]
+atlas = ExtResource("2_qadcm")
+region = Rect2(558, 0, 279, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7dnl"]
+atlas = ExtResource("2_qadcm")
+region = Rect2(837, 0, 279, 216)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lxyx7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skaou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnnfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sibaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7dnl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmqon"]
+size = Vector2(168, 166)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_of6wj"]
+size = Vector2(137, 166)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8l4nl"]
+size = Vector2(448, 166)
+
+[sub_resource type="Animation" id="Animation_q1o75"]
+resource_name = "default"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 2.1, 1),
+"update": 0,
+"values": [Vector2(-814, -69), Vector2(-814, -79), Vector2(-814, -69)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gxoq0"]
+_data = {
+"default": SubResource("Animation_q1o75")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2axt0"]
+atlas = ExtResource("7_e1l3e")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a52kc"]
+atlas = ExtResource("7_e1l3e")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tusoa"]
+atlas = ExtResource("7_e1l3e")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_407aj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2axt0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a52kc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tusoa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="Animation" id="Animation_e4tu5"]
+resource_name = "default"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1305, -87), Vector2(-1305, -92), Vector2(-1305, -82), Vector2(-1305, -87)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lvwga"]
+_data = {
+"default": SubResource("Animation_e4tu5")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hn18"]
+atlas = ExtResource("8_40y23")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxu7f"]
+atlas = ExtResource("8_40y23")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wcs4"]
+atlas = ExtResource("8_40y23")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vaupu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hn18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxu7f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wcs4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oblvh"]
+atlas = ExtResource("4_rbya7")
+region = Rect2(0, 0, 297, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljsp5"]
+atlas = ExtResource("4_rbya7")
+region = Rect2(297, 0, 297, 84)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eopg2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oblvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljsp5")
+}],
+"loop": true,
+"name": &"running",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_xwgvo"]
+resource_name = "taunt"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v2406"]
+_data = {
+"taunt": SubResource("Animation_xwgvo")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqomk"]
+atlas = ExtResource("5_ni27n")
+region = Rect2(0, 0, 231, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v24y8"]
+atlas = ExtResource("5_ni27n")
+region = Rect2(462, 0, 231, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhpi2"]
+atlas = ExtResource("5_ni27n")
+region = Rect2(0, 0, 231, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1dge"]
+atlas = ExtResource("5_ni27n")
+region = Rect2(231, 0, 231, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gt0fq"]
+atlas = ExtResource("5_ni27n")
+region = Rect2(0, 0, 231, 166)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8sldd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqomk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v24y8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhpi2")
+}],
+"loop": false,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1dge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gt0fq")
+}],
+"loop": false,
+"name": &"right",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r73kt"]
+radius = 49.0
+height = 284.0
+
+[sub_resource type="Animation" id="Animation_fg0ch"]
+resource_name = "jump"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2),
+"transitions": PackedFloat32Array(0.233258, 4.92457, 0.420448),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -75), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skateboard:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.1),
+"transitions": PackedFloat32Array(1, 0.210224, 1),
+"update": 0,
+"values": [0.0, -6.80678, -6.28319]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 0, 0, 0), Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j4c2h"]
+_data = {
+"jump": SubResource("Animation_fg0ch")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5wqg6"]
+radius = 67.082
+
+[node name="ParallaxBackground" type="Node2D"]
+process_mode = 3
+texture_filter = 1
+
+[node name="ParallaxLayer" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="ParallaxLayer"]
+sprite_frames = SubResource("SpriteFrames_g5jdk")
+frame_progress = 0.647378
+script = ExtResource("3_bm5hn")
+
+[node name="Trashy" type="AnimatedSprite2D" parent="ParallaxLayer"]
+position = Vector2(1751, 37)
+sprite_frames = SubResource("SpriteFrames_lxyx7")
+frame_progress = 0.213332
+script = ExtResource("3_bm5hn")
+
+[node name="Borders" type="StaticBody2D" parent="ParallaxLayer"]
+position = Vector2(0, 21)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ParallaxLayer/Borders"]
+polygon = PackedVector2Array(-1930, -400, -1925, 250, 1940, 250, 1940, -400, 1850, -400, 1850, 160, -1850, 160, -1850, -400)
+
+[node name="InteractZone" type="Area2D" parent="ParallaxLayer"]
+process_mode = 1
+position = Vector2(-324, 6)
+script = ExtResource("4_o1afb")
+lines = ["It's a trash can, containing an useful ITEM.", "Nubert thinks it would be better on the other side of the road."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxLayer/InteractZone"]
+position = Vector2(-50, 37)
+shape = SubResource("RectangleShape2D_mmqon")
+
+[node name="InteractZone2" type="Area2D" parent="ParallaxLayer"]
+process_mode = 1
+position = Vector2(-1705, -10)
+script = ExtResource("4_o1afb")
+lines = ["This is where Nubert's neighbor lives.", "Sometimes you wonder what it would be like to be a big shot, eating at Queen's mansion with a fancy wig...", "Hopefully it might happen."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxLayer/InteractZone2"]
+position = Vector2(-50, 37)
+shape = SubResource("RectangleShape2D_mmqon")
+
+[node name="InteractZone3" type="Area2D" parent="ParallaxLayer"]
+process_mode = 1
+position = Vector2(30, 6)
+script = ExtResource("4_o1afb")
+lines = ["This sign looks pretty up there.", "Hopefully it doesn't fall and hurt someone."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxLayer/InteractZone3"]
+position = Vector2(-50, 37)
+shape = SubResource("RectangleShape2D_mmqon")
+
+[node name="InteractZone4" type="Area2D" parent="ParallaxLayer"]
+process_mode = 1
+position = Vector2(1151, 17)
+script = ExtResource("4_o1afb")
+lines = ["This is a WARP DOOR.", "Nubert personally likes having a convenient shortcut to the void."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxLayer/InteractZone4"]
+position = Vector2(-50, 37)
+shape = SubResource("RectangleShape2D_mmqon")
+
+[node name="InteractZone5" type="Area2D" parent="ParallaxLayer"]
+process_mode = 1
+position = Vector2(1828, 23)
+script = ExtResource("4_o1afb")
+lines = ["Oh boy, oh boy! I'm Trashy!", "No way! It's Nubert! My man!"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxLayer/InteractZone5"]
+position = Vector2(-34.5, 37)
+shape = SubResource("RectangleShape2D_of6wj")
+
+[node name="InteractZone6" type="Area2D" parent="ParallaxLayer"]
+process_mode = 1
+position = Vector2(1527, 21)
+script = ExtResource("4_o1afb")
+lines = ["The eggplant's shape reminds you of something, but you can't remember what..."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxLayer/InteractZone6"]
+position = Vector2(-50, 37)
+shape = SubResource("RectangleShape2D_mmqon")
+
+[node name="InteractZone7" type="Area2D" parent="ParallaxLayer"]
+process_mode = 1
+position = Vector2(-1076, 0)
+script = ExtResource("4_o1afb")
+lines = ["It wouldn't be Nubert's home without trash."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxLayer/InteractZone7"]
+position = Vector2(-34, 37)
+shape = SubResource("RectangleShape2D_8l4nl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-814, -69.2687)
+rotation = -0.293707
+texture = ExtResource("9_eqasw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_gxoq0")
+}
+script = ExtResource("6_w2a7e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D"]
+sprite_frames = SubResource("SpriteFrames_407aj")
+frame_progress = 0.282719
+script = ExtResource("3_bm5hn")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-1305, -89.2627)
+rotation = -0.545584
+texture = ExtResource("9_eqasw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D2"]
+libraries = {
+"": SubResource("AnimationLibrary_lvwga")
+}
+script = ExtResource("6_w2a7e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D2"]
+sprite_frames = SubResource("SpriteFrames_vaupu")
+script = ExtResource("3_bm5hn")
+
+[node name="Nubert" type="CharacterBody2D" parent="."]
+process_mode = 1
+position = Vector2(945, 100)
+script = ExtResource("2_lwkrx")
+
+[node name="Camera2D" type="Camera2D" parent="Nubert"]
+process_mode = 3
+limit_left = -1925
+limit_top = -225
+limit_right = 1925
+limit_bottom = -225
+
+[node name="Skateboard" type="AnimatedSprite2D" parent="Nubert"]
+position = Vector2(0, 67)
+sprite_frames = SubResource("SpriteFrames_eopg2")
+animation = &"running"
+frame_progress = 0.989542
+
+[node name="Taunt" type="Sprite2D" parent="Nubert"]
+process_mode = 3
+visible = false
+texture = ExtResource("6_gq0ur")
+script = ExtResource("7_8rlu7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Nubert/Taunt"]
+libraries = {
+"": SubResource("AnimationLibrary_v2406")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Nubert/Taunt"]
+stream = ExtResource("13_xvrsl")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Nubert"]
+sprite_frames = SubResource("SpriteFrames_8sldd")
+frame_progress = 0.1685
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nubert"]
+position = Vector2(0, 62)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_r73kt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Nubert"]
+libraries = {
+"": SubResource("AnimationLibrary_j4c2h")
+}
+
+[node name="Label" type="Label" parent="Nubert"]
+visible = false
+modulate = Color(1, 0, 0, 1)
+offset_left = -49.0
+offset_top = -96.0
+offset_right = 28.0
+offset_bottom = -73.0
+theme_override_fonts/font = ExtResource("11_xkwta")
+text = "INTERACT !"
+
+[node name="Area2D" type="Area2D" parent="Nubert"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nubert/Area2D"]
+shape = SubResource("CircleShape2D_5wqg6")
+
+[node name="ParallaxLayer2" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+texture = ExtResource("2_3l3bo")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer"]
+process_mode = 1
+texture_filter = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -60.0
+offset_top = 10.0
+offset_right = 40.0
+offset_bottom = 110.0
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+focus_mode = 0
+texture_normal = ExtResource("14_cb2mv")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+visible = false
+texture_filter = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 183.0
+grow_horizontal = 2
+texture = ExtResource("10_83ka1")
+stretch_mode = 5
+script = ExtResource("12_ro2ub")
+
+[node name="*" type="RichTextLabel" parent="CanvasLayer/TextureRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 35.0
+offset_right = -30.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("11_xkwta")
+theme_override_font_sizes/normal_font_size = 27
+text = "*"
+
+[node name="Label" type="RichTextLabel" parent="CanvasLayer/TextureRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 55.0
+offset_top = 35.0
+offset_right = -30.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_separation = 15
+theme_override_fonts/normal_font = ExtResource("11_xkwta")
+theme_override_font_sizes/normal_font_size = 27
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/TextureRect"]
+stream = ExtResource("19_qklet")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_gmovh")
+autoplay = true
+
+[connection signal="area_entered" from="ParallaxLayer/InteractZone" to="ParallaxLayer/InteractZone" method="_on_area_entered"]
+[connection signal="area_exited" from="ParallaxLayer/InteractZone" to="ParallaxLayer/InteractZone" method="_on_area_exited"]
+[connection signal="body_entered" from="ParallaxLayer/InteractZone" to="ParallaxLayer/InteractZone" method="_on_body_entered"]
+[connection signal="area_entered" from="ParallaxLayer/InteractZone2" to="ParallaxLayer/InteractZone2" method="_on_area_entered"]
+[connection signal="area_exited" from="ParallaxLayer/InteractZone2" to="ParallaxLayer/InteractZone2" method="_on_area_exited"]
+[connection signal="body_entered" from="ParallaxLayer/InteractZone2" to="ParallaxLayer/InteractZone2" method="_on_body_entered"]
+[connection signal="area_entered" from="ParallaxLayer/InteractZone3" to="ParallaxLayer/InteractZone3" method="_on_area_entered"]
+[connection signal="area_exited" from="ParallaxLayer/InteractZone3" to="ParallaxLayer/InteractZone3" method="_on_area_exited"]
+[connection signal="body_entered" from="ParallaxLayer/InteractZone3" to="ParallaxLayer/InteractZone3" method="_on_body_entered"]
+[connection signal="area_entered" from="ParallaxLayer/InteractZone4" to="ParallaxLayer/InteractZone4" method="_on_area_entered"]
+[connection signal="area_exited" from="ParallaxLayer/InteractZone4" to="ParallaxLayer/InteractZone4" method="_on_area_exited"]
+[connection signal="body_entered" from="ParallaxLayer/InteractZone4" to="ParallaxLayer/InteractZone4" method="_on_body_entered"]
+[connection signal="area_entered" from="ParallaxLayer/InteractZone5" to="ParallaxLayer/InteractZone5" method="_on_area_entered"]
+[connection signal="area_exited" from="ParallaxLayer/InteractZone5" to="ParallaxLayer/InteractZone5" method="_on_area_exited"]
+[connection signal="body_entered" from="ParallaxLayer/InteractZone5" to="ParallaxLayer/InteractZone5" method="_on_body_entered"]
+[connection signal="area_entered" from="ParallaxLayer/InteractZone6" to="ParallaxLayer/InteractZone6" method="_on_area_entered"]
+[connection signal="area_exited" from="ParallaxLayer/InteractZone6" to="ParallaxLayer/InteractZone6" method="_on_area_exited"]
+[connection signal="body_entered" from="ParallaxLayer/InteractZone6" to="ParallaxLayer/InteractZone6" method="_on_body_entered"]
+[connection signal="area_entered" from="ParallaxLayer/InteractZone7" to="ParallaxLayer/InteractZone7" method="_on_area_entered"]
+[connection signal="area_exited" from="ParallaxLayer/InteractZone7" to="ParallaxLayer/InteractZone7" method="_on_area_exited"]
+[connection signal="body_entered" from="ParallaxLayer/InteractZone7" to="ParallaxLayer/InteractZone7" method="_on_body_entered"]
+[connection signal="pressed" from="CanvasLayer/TextureButton" to="CanvasLayer/TextureRect" method="start" binds= [["Press LEFT and RIGHT to move, UP to jump, Z to interact, X to skip and C to parry."]]]

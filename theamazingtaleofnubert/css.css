@@ -6,6 +6,8 @@ body {
 	background-color: #020044;
 	color: #020044;
 	background-size: cover;
+	image-rendering: pixelated;
+    image-rendering: crisp-edges;
 	background-image: url("https://file.garden/ZQ7m59u0aDkSDgVR/cyberbg.png");
 }
 

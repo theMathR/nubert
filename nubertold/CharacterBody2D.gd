@@ -71,7 +71,7 @@ func _physics_process(delta):
 		return
 	
 	if is_dashing:
-		velocity.x = is_dashing * SPEED * 10
+		velocity.x = is_dashing * SPEED * 5
 		handle_collisions()
 		return
 	
